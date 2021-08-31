@@ -5,50 +5,50 @@ import java.text.*;
 import java.util.*;
 
 public class Fraccion {
-	private int numerador;
-	private int denominador;
+	private float numerador;
+	private float denominador;
    
    // Método constructor
-	public Fraccion(int numerador, int denominador) {
+	public Fraccion(float numerador, float denominador) {
 	   setNumerador(numerador);
       setDenominador(denominador);
 	}
    
    // Sets y gets
-   public void setNumerador(int numerador) {
+   public void setNumerador(float numerador) {
       this.numerador = numerador;
    }
-   public int getNumerador() {
+   public float getNumerador() {
       return numerador;
    }
    
-   public void setDenominador(int denominador) {
+   public void setDenominador(float denominador) {
       this.denominador = denominador;
    }
-   public int getDenominador() {
+   public float getDenominador() {
       return denominador;
    }
 	
    // Obtener la división del numerador y del denominador
 	public float obtenerDivision() {
-	   return (float) numerador / denominador;
+	   return numerador / denominador;
 	}
 	
 	public String toString() {
 	   DecimalFormat tresDigitos = new DecimalFormat("0.000");
-      return numerador + "/" + denominador + " = " + tresDigitos.format(obtenerDivision());
+      return (int) numerador + "/" + (int) denominador + " = " + tresDigitos.format(obtenerDivision());
 	}
 }
 
 class Principal {
 
    // Validar denominador
-   public static int validar() {
+   public static float validar() {
       Scanner s = new Scanner(System.in);
-      int d;
+      float d;
       do {
          System.out.print("Escriba el denominador de la fracción: ");
-         d = s.nextInt();
+         d = s.nextFloat();
       } while (d == 0);
       return d;
    }
@@ -57,13 +57,13 @@ class Principal {
       // Pedir valor (con validación)
       Scanner s = new Scanner(System.in);
       System.out.print("Escriba el numerador de la fracción: ");
-      int n = s.nextInt();
-      int d = validar();
+      float n = s.nextInt();
+      float d = validar();
       Fraccion f1 = new Fraccion(n, d);
       
       // Imprimir con gets
-      System.out.println("Numerador: " + f1.getNumerador());
-      System.out.println("Denominador: " + f1.getDenominador());
+      System.out.println("Numerador: " + (int) f1.getNumerador());
+      System.out.println("Denominador: " + (int) f1.getDenominador());
       
       // Imprimir con toString
       System.out.println(f1);
