@@ -1,5 +1,5 @@
-//  @ Date : 24/08/2021
-//  @ Author : Karen Garza Trevi駉
+//  @ Date : 31/08/2021
+//  @ Author : Karen Garza Trevi帽o
 
 import java.text.*;
 import java.util.*;
@@ -8,12 +8,28 @@ public class Fraccion {
 	private int numerador;
 	private int denominador;
    
-   // M閠odo constructor
+   // M茅todo constructor
 	public Fraccion(int numerador, int denominador) {
-	   this.numerador = numerador;
-      this.denominador = denominador;
+	   setNumerador(numerador);
+      setDenominador(denominador);
 	}
+   
+   // Sets y gets
+   public void setNumerador(int numerador) {
+      this.numerador = numerador;
+   }
+   public int getNumerador() {
+      return numerador;
+   }
+   
+   public void setDenominador(int denominador) {
+      this.denominador = denominador;
+   }
+   public int getDenominador() {
+      return denominador;
+   }
 	
+   // Obtener la divisi贸n del numerador y del denominador
 	public float obtenerDivision() {
 	   return (float) numerador / denominador;
 	}
@@ -31,25 +47,25 @@ class Principal {
       Scanner s = new Scanner(System.in);
       int d;
       do {
-         System.out.print("Escriba el denominador de la fracci髇: ");
+         System.out.print("Escriba el denominador de la fracci贸n: ");
          d = s.nextInt();
       } while (d == 0);
       return d;
    }
 
-   public static void main(String[] args) {
-      // Valores fijos
-      Fraccion f1 = new Fraccion(4, 5);
-      
-      // Pedir valor (con validaci髇)
+   public static void main(String[] args) {      
+      // Pedir valor (con validaci贸n)
       Scanner s = new Scanner(System.in);
-      System.out.print("Escriba el numerador de la fracci髇: ");
+      System.out.print("Escriba el numerador de la fracci贸n: ");
       int n = s.nextInt();
       int d = validar();
-      Fraccion f2 = new Fraccion(n, d);
+      Fraccion f1 = new Fraccion(n, d);
       
-      // Imprimir resultados
+      // Imprimir con gets
+      System.out.println("Numerador: " + f1.getNumerador());
+      System.out.println("Denominador: " + f1.getDenominador());
+      
+      // Imprimir con toString
       System.out.println(f1);
-      System.out.println(f2);
    }
 }
